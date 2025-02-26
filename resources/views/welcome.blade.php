@@ -19,10 +19,18 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+    <body class="bg-gray-200 dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+       
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
+                    <ul class="flex gap-4">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/') }}">All Recipes</a></li>
+                        <li><a href="{{ url('/') }}">Vegetarian</a></li>
+                        <li><a href="{{ url('/') }}">Wines</a></li>
+                        <li><a href="{{ url('/') }}">Sweets</a></li>
+                    </ul>
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
@@ -46,18 +54,25 @@
                             </a>
                         @endif
                     @endauth
+            
                 </nav>
             @endif
         </header>
         <div class="flex justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="bg-gray-200 p-4">Column 1</div>
-                  <div class="bg-gray-200 p-4">Column 2</div>
+                    <div class="md:p-[85px]">
+                        <p class="text-3xl md:text-4xl lg:text-5xl">Welcome to </p>
+                        <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold">True Pasta Lovers</h1>
+                        <p class="text-base md:text-lg lg:text-xl">If you’re a true pasta enthusiast, you know there’s nothing quite like the perfect plate of pasta. Whether it's the comforting simplicity of spaghetti aglio e olio or the indulgence of a rich, creamy Alfredo, pasta is more than just a meal—it's a passion.</p>
+                    </div>
+                    <div class="p-4">
+                        <img src="/images/pasta1.png" alt="" class="max-w-full h-auto">
+                    </div>
                 </div>
-              </div>
-              
+            </div>
         </div>
+        
 
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
