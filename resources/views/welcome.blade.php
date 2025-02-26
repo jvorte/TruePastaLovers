@@ -20,44 +20,46 @@
         @endif
     </head>
     <body class="bg-gray-200 dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-       
+    
+        <!-- ✅ Αντικατάστησε το παλιό header με αυτό -->
+        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6">
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    <ul class="flex gap-4">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/') }}">All Recipes</a></li>
-                        <li><a href="{{ url('/') }}">Vegetarian</a></li>
-                        <li><a href="{{ url('/') }}">Wines</a></li>
-                        <li><a href="{{ url('/') }}">Sweets</a></li>
+                <nav class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <a href="{{ url('/') }}" class="text-xl font-bold">True Pasta Lovers</a>
+    
+                    <!-- Hamburger Button for Mobile -->
+                    <button class="lg:hidden p-2 focus:outline-none" id="menu-toggle">
+                        ☰
+                    </button>
+    
+                    <!-- Navigation Links -->
+                    <ul id="menu" class="hidden lg:flex gap-4 flex-col lg:flex-row absolute lg:static bg-gray-200 dark:bg-[#0a0a0a] p-4 lg:p-0 w-full lg:w-auto top-16 left-0 shadow-lg lg:shadow-none">
+                        <li><a href="{{ url('/') }}" class="block p-2">Home</a></li>
+                        <li><a href="{{ url('/') }}" class="block p-2">All Recipes</a></li>
+                        <li><a href="{{ url('/') }}" class="block p-2">Vegetarian</a></li>
+                        <li><a href="{{ url('/') }}" class="block p-2">Wines</a></li>
+                        <li><a href="{{ url('/') }}" class="block p-2">Sweets</a></li>
+                        @auth
+                            <li>
+                                <a href="{{ url('/dashboard') }}" class="block p-2 border border-gray-400 rounded">Dashboard</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}" class="block p-2 border border-gray-400 rounded">Log in</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li>
+                                    <a href="{{ route('register') }}" class="block p-2 border border-gray-400 rounded">Register</a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
-
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
-                    @endauth
-            
                 </nav>
             @endif
         </header>
+    
+        <!-- ✅ Άφησε το υπόλοιπο περιεχόμενο ως έχει -->
         <div class="flex justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -72,10 +74,17 @@
                 </div>
             </div>
         </div>
-        
-
+    
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+    
+        <!-- ✅ Πρόσθεσε το script εδώ για να λειτουργεί το menu toggle -->
+        <script>
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                document.getElementById('menu').classList.toggle('hidden');
+            });
+        </script>
     </body>
+    
 </html>
