@@ -14,10 +14,10 @@
                 <nav class="hidden sm:flex">
                     <ul class="flex gap-4 ms-5 mt-5">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/') }}">All Recipes</a></li>
-                        <li><a href="{{ url('/') }}">Vegetarian</a></li>
-                        <li><a href="{{ url('/') }}">Wines</a></li>
-                        <li><a href="{{ url('/') }}">Sweets</a></li>
+                        <li><a href="{{ url('/all_recipes') }}">All Recipes</a></li>
+                        <li><a href="{{ url('/vegetarian') }}">Vegetarian</a></li>
+                        <li><a href="{{ url('/wines') }}">Wines</a></li>
+                        <li><a href="{{ url('/sweets') }}">Sweets</a></li>
                     </ul>
                 </nav>
             </div>
@@ -69,10 +69,10 @@
 <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-white border-t border-gray-200">
     <ul class="py-2 px-4 space-y-2">
         <li><a href="{{ url('/') }}" class="block p-2 text-gray-800">Home</a></li>
-        <li><a href="{{ url('/') }}" class="block p-2 text-gray-800">All Recipes</a></li>
-        <li><a href="{{ url('/') }}" class="block p-2 text-gray-800">Vegetarian</a></li>
-        <li><a href="{{ url('/') }}" class="block p-2 text-gray-800">Wines</a></li>
-        <li><a href="{{ url('/') }}" class="block p-2 text-gray-800">Sweets</a></li>
+        <li><a href="{{ url('/all_recipes') }}" class="block p-2 text-gray-800">All Recipes</a></li>
+        <li><a href="{{ url('/vegetarian') }}" class="block p-2 text-gray-800">Vegetarian</a></li>
+        <li><a href="{{ url('/wines') }}" class="block p-2 text-gray-800">Wines</a></li>
+        <li><a href="{{ url('/sweets') }}" class="block p-2 text-gray-800">Sweets</a></li>
     </ul>
 
     <!-- Responsive Settings Options -->
