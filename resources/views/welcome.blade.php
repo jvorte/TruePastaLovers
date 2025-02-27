@@ -22,7 +22,7 @@
     <body class="bg-gray-200 dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
     
         <!-- ✅ Αντικατάστησε το παλιό header με αυτό -->
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6">
+        <header class="w-full lg:max-w-7xl max-w-[335px] text-sm mb-6">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-between">
                     <!-- Logo -->
@@ -41,9 +41,7 @@
                         <li><a href="{{ url('/wines') }}" class="block p-2">Wines</a></li>
                         <li><a href="{{ url('/sweets') }}" class="block p-2">Sweets</a></li>
                         @auth
-                            <li>
-                                <a href="{{ url('/dashboard') }}" class="block p-2 border border-gray-400 rounded">Dashboard</a>
-                            </li>
+                        
                         @else
                             <li>
                                 <a href="{{ route('login') }}" class="block p-2 border border-gray-400 rounded">Log in</a>

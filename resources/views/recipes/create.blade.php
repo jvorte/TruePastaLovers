@@ -1,21 +1,30 @@
-<!-- filepath: /e:/WebDevelopment Projects/PORTFOLIO PROJECTS/TruePastaLovers/resources/views/recipes/create.blade.php -->
+<form action="{{ route('recipes.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-@extends('layouts.app')
+    <label for="title">Title of Recipe:</label>
+    <input type="text" name="title" id="title" required>
+    <br>
 
-@section('content')
-    <div class="container">
-        <h1>Create a New Recipe</h1>
-        <form action="{{ route('recipes.store') }}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="name" class="form-label">Recipe Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-        </form>
-    </div>
-@endsection
+    <label for="ingredients">Ingredients:</label>
+    <textarea name="ingredients" id="ingredients" required></textarea>
+    <br>
+
+    <label for="instructions">Instructions:</label>
+    <textarea name="instructions" id="instructions" required></textarea>
+    <br>
+
+    <label for="image">Image:</label>
+    <input type="file" name="image" id="image">
+    <br>
+
+    <label for="type">Type:</label>
+    <select name="type" id="type" required>
+        <option value="1">Pasta</option>
+        <option value="2">Vegetarian</option>
+        <option value="3">Wines</option>
+        <option value="4">Sweets</option>
+    </select>
+    <br>
+
+    <button type="submit">Create Recipe</button>
+</form>
