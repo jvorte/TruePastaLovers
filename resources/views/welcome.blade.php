@@ -36,10 +36,10 @@
                     <!-- Navigation Links -->
                     <ul id="menu" class="hidden lg:flex gap-4 flex-col lg:flex-row absolute lg:static bg-gray-200 dark:bg-[#0a0a0a] p-4 lg:p-0 w-full lg:w-auto top-16 left-0 shadow-lg lg:shadow-none">
                         <li><a href="{{ url('/') }}" class="block p-2">Home</a></li>
-                        <li><a href="{{ url('/') }}" class="block p-2">All Recipes</a></li>
-                        <li><a href="{{ url('/') }}" class="block p-2">Vegetarian</a></li>
-                        <li><a href="{{ url('/') }}" class="block p-2">Wines</a></li>
-                        <li><a href="{{ url('/') }}" class="block p-2">Sweets</a></li>
+                        <li><a href="{{ url('/all_recipes') }}" class="block p-2">All Recipes</a></li>
+                        <li><a href="{{ url('/vegetarian') }}" class="block p-2">Vegetarian</a></li>
+                        <li><a href="{{ url('/wines') }}" class="block p-2">Wines</a></li>
+                        <li><a href="{{ url('/sweets') }}" class="block p-2">Sweets</a></li>
                         @auth
                             <li>
                                 <a href="{{ url('/dashboard') }}" class="block p-2 border border-gray-400 rounded">Dashboard</a>
