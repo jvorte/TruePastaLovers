@@ -22,6 +22,7 @@ Route::get('/wines', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
 
 Route::middleware('auth')->group(function () {
 

@@ -57,6 +57,40 @@ class RecipeController extends Controller
         return view('recipes.show', compact('recipe'));
     }
 
+    public function edit($id)
+    {
+        $recipe = Recipe::find($id);
+        return view('recipes.edit', compact('recipe'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',     
+            'ingredients' => 'required',
+            'instructions' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Επιπλέον έλεγχος για την εικόνα
+            'type' => 'required',
+        ]);
+
+        $recipe = Recipe::find($id);
+
+        // Αν υπάρχει νέα εικόνα, αποθήκευσέ την
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $recipe->image = $imagePath;
+        }
+
+        // Ενημέρωση της συνταγής
+        $recipe->title = $request->title;
+        $recipe->ingredients = $request->ingredients;
+        $recipe->instructions = $request->instructions;
+        $recipe->type = $request->type;
+        $recipe->save();
+
+        return redirect()->route('recipes.show', $recipe->id);
+    }
+
     public function destroy($id)
     {
         $recipe = Recipe::find($id);
