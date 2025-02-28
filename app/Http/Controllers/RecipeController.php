@@ -9,9 +9,14 @@ class RecipeController extends Controller
 {
     public function index()
     {
-        $recipes = Recipe::all();
-        return view('recipes.index', compact('recipes'));
+        try {
+            $recipes = Recipe::all();  // Fetch all recipes
+            return view('all_recipes', compact('recipes'));  // Pass recipes to the view
+        } catch (\Exception $e) {
+            dd($e->getMessage());  // Display error if any
+        }
     }
+    
 
     public function create()
     {

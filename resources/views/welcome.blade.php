@@ -67,7 +67,7 @@
                         <p class="text-base md:text-lg lg:text-xl">If you’re a true pasta enthusiast, you know there’s nothing quite like the perfect plate of pasta. Whether it's the comforting simplicity of spaghetti aglio e olio or the indulgence of a rich, creamy Alfredo, pasta is more than just a meal—it's a passion.</p>
                     </div>
                     <div class="p-4">
-                        <img src="/images/pasta1.png" alt="" class="max-w-full h-auto">
+                        <img src="/siteImages/pasta1.png" alt="" class="max-w-full h-auto">
                     </div>
                 </div>
             </div>

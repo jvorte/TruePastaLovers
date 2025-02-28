@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return view('welcome');});
 
-Route::get('/all_recipes', function () {
-    return view('all_recipes');
-})->name('all_recipes');
+Route::get('/all_recipes', [RecipeController::class, 'index'])->name('all_recipes');
 
 Route::get('/vegetarian', function () {
     return view('vegetarian');
