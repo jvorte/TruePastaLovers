@@ -25,7 +25,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-
+  
+   
+    
+    Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
 
 Route::resource('recipes', RecipeController::class);
 

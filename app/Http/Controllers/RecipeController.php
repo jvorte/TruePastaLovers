@@ -56,4 +56,13 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         return view('recipes.show', compact('recipe'));
     }
+
+    public function destroy($id)
+    {
+        $recipe = Recipe::find($id);
+        if ($recipe) {
+            $recipe->delete();
+        }
+        return redirect()->route('all_recipes');
+    }
 }

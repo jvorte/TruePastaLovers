@@ -19,10 +19,10 @@
             
             <label for="type" class="block font-medium">Type:</label>
             <select name="type" id="type" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
-                <option value="1">Pasta</option>
-                <option value="2">Vegetarian</option>
-                <option value="3">Wines</option>
-                <option value="4">Sweets</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Wines">Wines</option>
+                <option value="Sweets">Sweets</option>
             </select>
             
             <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition">Create Recipe</button>
