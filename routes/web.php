@@ -2,6 +2,14 @@
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FavoriteController;
+
+// routes/web.php
+
+Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+Route::post('/favorites/{recipe}', [FavoriteController::class, 'store'])->name('favorites.add');
+Route::delete('/favorites/{recipe}', [FavoriteController::class, 'destroy'])->name('favorites.remove');
+
 
 Route::get('/', function () { return view('welcome');});
 

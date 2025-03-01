@@ -1,13 +1,4 @@
-<!-- filepath: /e:/WebDevelopment Projects/PORTFOLIO PROJECTS/TruePastaLovers/resources/views/recipes/edit.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Recipe</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<body>
+<x-app-layout>
     <div class="container mx-auto p-5">
         <h1 class="text-3xl font-semibold text-center mb-5">Edit Recipe</h1>
         <form action="{{ route('recipes.update', $recipe->id) }}" method="POST" enctype="multipart/form-data">
@@ -36,5 +27,4 @@
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Update Recipe</button>
         </form>
     </div>
-</body>
-</html>
+</x-app-layout>

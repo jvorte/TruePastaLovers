@@ -55,5 +55,9 @@ public function isUser()
 {
     return $this->role === 'user';
 }
+public function favorites()
+{
+    return $this->hasMany(Favorite::class);
+}
 
 }
