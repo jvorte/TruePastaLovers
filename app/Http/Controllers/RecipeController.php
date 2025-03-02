@@ -26,7 +26,8 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',     
+            'title' => 'required',  
+            'description' => 'required',   
             'ingredients' => 'required',
             'instructions' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Επιπλέον έλεγχος για την εικόνα
@@ -42,6 +43,7 @@ class RecipeController extends Controller
         // Δημιουργία της συνταγής με το αποθηκευμένο path της εικόνας
         Recipe::create([
             'title' => $request->title,
+            'description' => $request->description, 
             'ingredients' => $request->ingredients,
             'instructions' => $request->instructions,
             'image' => $imagePath, // Αποθήκευση του path της εικόνας
@@ -60,36 +62,55 @@ class RecipeController extends Controller
     public function edit($id)
     {
         $recipe = Recipe::find($id);
+
         return view('recipes.edit', compact('recipe'));
     }
 
     public function update(Request $request, $id)
     {
+        // Validate the input
         $request->validate([
-            'title' => 'required',     
+            'title' => 'required',
+            'description' => 'required',  
             'ingredients' => 'required',
             'instructions' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Επιπλέον έλεγχος για την εικόνα
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
             'type' => 'required',
         ]);
-
+    
+        // Find the recipe by ID
         $recipe = Recipe::find($id);
-
-        // Αν υπάρχει νέα εικόνα, αποθήκευσέ την
+    
+        // Check if the recipe exists
+        if (!$recipe) {
+            return redirect()->route('recipes.index')->with('error', 'Recipe not found.');
+        }
+    
+        // If there is a new image, store it
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
             $recipe->image = $imagePath;
         }
-
-        // Ενημέρωση της συνταγής
+    
+        // Update the recipe data
         $recipe->title = $request->title;
+        $recipe->description = $request->description;
         $recipe->ingredients = $request->ingredients;
         $recipe->instructions = $request->instructions;
         $recipe->type = $request->type;
+        
+        // Save the changes
         $recipe->save();
 
+        try {
+            $recipe->save();
+        } catch (\Exception $e) {
+            return redirect()->route('recipes.edit', $id)->with('error', 'Error saving the recipe: ' . $e->getMessage());
+        }
+    
         return redirect()->route('recipes.show', $recipe->id);
     }
+    
 
     public function destroy($id)
     {

@@ -8,6 +8,10 @@
             <label for="title" class="block font-medium">Title of Recipe:</label>
             <input type="text" name="title" id="title" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
             
+            
+            <label for="description" class="block font-medium">Description:</label>
+            <input type="text" name="description" id="description" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+            
             <label for="ingredients" class="block font-medium">Ingredients:</label>
             <textarea name="ingredients" id="ingredients" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"></textarea>
             

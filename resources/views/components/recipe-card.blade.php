@@ -1,54 +1,57 @@
-<div class="p-5 flex flex-col items-center text-center">
-    <!-- Εικόνα με σταθερό μέγεθος -->
-    <div class="w-64 h-64 overflow-hidden rounded-md mb-4">
-        <img src="{{ asset('storage/' . $recipe->image) }}" 
-             alt="Recipe Image" 
-             class="w-full h-full object-cover">
+
+
+
+
+
+<div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
+    <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+   
+        <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-full object-cover">
     </div>
-    
-    <!-- Τίτλος συνταγής -->
-    <h3 class="text-xl font-semibold text-center w-full">{{ $recipe->title }}</h3>
+    <div class="p-4">
+      <h6 class="mb-2 text-slate-800 text-xl font-semibold">
+        {{ $recipe->title }}
+      </h6>
+      <p class="text-slate-600 leading-normal font-light">
+        {{ $recipe->description }}
+      </p>
+    </div>
+    <div class="px-4 pb-4 pt-0 mt-2">
+        <a href="{{ route('recipes.show', $recipe->id) }}" class="flex items-center justify-center space-x-2 text-blue-500 hover:underline text-sm">
+            <img src="siteImages/view.svg" alt="View Recipe" class="w-5 h-5"> <!-- Μικρότερο εικονίδιο -->
+            <span>View Recipe</span>
+        </a>
+        @auth
+        @if(!Auth::user()->favorites->contains('recipe_id', $recipe->id))
+            <!-- Προσθήκη στα αγαπημένα -->
+            <form action="{{ route('favorites.add', $recipe->id) }}" method="POST">
+                @csrf
+                <button type="submit" class="flex items-center justify-center space-x-2 text-gray-500 hover:text-red-500 text-sm">
+                    <img src="siteImages/heart-.svg" alt="Add to Favorites" class="w-5 h-5"> <!-- Μικρότερο εικονίδιο -->
+                    <span>Add to Favorites</span>
+                </button>
+            </form>
+        @else
+            <!-- Αφαίρεση από τα αγαπημένα -->
+            <form action="{{ route('favorites.remove', $recipe->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="flex items-center justify-center space-x-2 text-red-500 text-sm">
+                    <img src="siteImages/heart.svg" alt="Remove from Favorites" class="w-5 h-5"> <!-- Μικρότερο εικονίδιο -->
+                    <span>Remove from Favorites</span>
+                </button>
+            </form>
+        @endif
+        @endauth
 
-    <!-- Τύπος -->
-    {{-- <p class="text-sm text-gray-600 text-center w-full">{{ $recipe->type }}</p> --}}
-    
-    <!-- Προβολή συνταγής -->
-    <a href="{{ route('recipes.show', $recipe->id) }}" class="mt-4 inline-block text-blue-500 hover:underline text-center">View Recipe</a>
-
-    @auth
-    @if(Auth::user()->isAdmin())
-        <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST" class="mt-2">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="text-md text-red-500">Delete</button>
-        </form>
-    @endif
-    @endauth
-    @auth
-    @if(!Auth::user()->favorites->contains('recipe_id', $recipe->id))
-        <form action="{{ route('favorites.add', $recipe->id) }}" method="POST">
-            @csrf
-            <button type="submit" class="flex items-center space-x-2 text-gray-500 hover:text-red-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                          d="M5.121 19.364l-.707-.707a5.5 5.5 0 010-7.778l7.778-7.778a5.5 5.5 0 017.778 7.778l-7.778 7.778a5.5 5.5 0 01-7.778 0z" />
-                </svg>
-                <span>Add to Favorites</span>
-            </button>
-        </form>
-    @else
-        <form action="{{ route('favorites.remove', $recipe->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="flex items-center space-x-2 text-red-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                          d="M5.121 19.364l-.707-.707a5.5 5.5 0 010-7.778l7.778-7.778a5.5 5.5 0 017.778 7.778l-7.778 7.778a5.5 5.5 0 01-7.778 0z" />
-                </svg>
-                <span>Remove from Favorites</span>
-            </button>
-        </form>
-    @endif
-@endauth
-
-</div>
+        @auth
+        @if(Auth::user()->isAdmin())
+            <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST" class="mt-2">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-md text-red-500">Delete</button>
+            </form>
+        @endif
+        @endauth
+    </div>
+  </div>

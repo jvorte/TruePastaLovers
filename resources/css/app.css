@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
+*{
+    font-family: "poppins", sans-serif;
+}
 
 .pageMainTitle span{
 color: red;
 font-family: "Moon Dance", cursive;
 font-weight: 400;
 font-style: normal;
+}
+
+.cardFont1{
+    font-family: "Moon Dance", cursive;  
+    font-size: 35px; 
 }

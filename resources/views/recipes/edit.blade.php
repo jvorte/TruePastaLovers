@@ -9,6 +9,10 @@
                 <input type="text" name="title" id="title" value="{{ $recipe->title }}" class="w-full p-2 border border-gray-300 rounded-md">
             </div>
             <div class="mb-4">
+                <label for="description" class="block text-gray-700">Description:</label>
+                <input type="text" name="description" id="description" value="{{ old('description', $recipe->description) }}" class="w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div class="mb-4">
                 <label for="ingredients" class="block text-gray-700">Ingredients:</label>
                 <textarea name="ingredients" id="ingredients" class="w-full p-2 border border-gray-300 rounded-md">{{ $recipe->ingredients }}</textarea>
             </div>
