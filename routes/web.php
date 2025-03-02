@@ -15,21 +15,14 @@ Route::get('/', function () { return view('welcome');});
 
 Route::get('/all_recipes', [RecipeController::class, 'index'])->name('all_recipes');
 
-Route::get('/vegetarian', function () {
-    return view('vegetarian');
+Route::get('/vegetarian', function () { return view('vegetarian');
 });
 
-Route::get('/sweets', function () {
-    return view('sweets');
-});
+Route::get('/vegetarian', [RecipeController::class, 'vegetarian'])->name('recipes.vegetarian');
+Route::get('/wines', [RecipeController::class, 'wines'])->name('recipes.wines');
+Route::get('/sweets', [RecipeController::class, 'sweets'])->name('recipes.sweets');
 
-Route::get('/wines', function () {
-    return view('wines');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {    return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
 
 Route::middleware('auth')->group(function () {

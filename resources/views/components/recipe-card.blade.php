@@ -10,7 +10,7 @@
     <h3 class="text-xl font-semibold text-center w-full">{{ $recipe->title }}</h3>
 
     <!-- Τύπος -->
-    <p class="text-sm text-gray-600 text-center w-full">{{ $recipe->type }}</p>
+    {{-- <p class="text-sm text-gray-600 text-center w-full">{{ $recipe->type }}</p> --}}
     
     <!-- Προβολή συνταγής -->
     <a href="{{ route('recipes.show', $recipe->id) }}" class="mt-4 inline-block text-blue-500 hover:underline text-center">View Recipe</a>

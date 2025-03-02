@@ -99,4 +99,26 @@ class RecipeController extends Controller
         }
         return redirect()->route('all_recipes');
     }
+
+    public function wines()
+{
+    $recipes = Recipe::where('type', 'wines')->get();
+    return view('wines', compact('recipes'));
+    
+}
+
+public function sweets()
+{
+    $recipes = Recipe::where('type', 'sweets')->get();
+    return view('sweets', compact('recipes'));
+    
+}
+
+public function vegetarian()
+{
+    $recipes = Recipe::where('type', 'vegetarian')->get();
+    return view('vegetarian', compact('recipes'));
+    
+}
+
 }

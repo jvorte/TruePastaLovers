@@ -1,6 +1,7 @@
 <x-app-layout>
-    <div class="container mx-auto py-8">
-        <h2 class="text-2xl font-semibold mb-6 text-center">Τα Αγαπημένα Σας</h2>
+    <div class="container mx-auto py-8 pageMainTitle text-center">
+        <p class="text-3xl md:text-4xl lg:text-5xl">Favorites</p>
+        <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span>
 
         @if($favorites->isEmpty())
             <p class="text-center text-gray-600">Δεν έχετε προσθέσει ακόμα αγαπημένες συνταγές!</p>
