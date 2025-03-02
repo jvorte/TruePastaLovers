@@ -3,15 +3,15 @@
         <!-- Αριστερή στήλη -->
         <div class="md:w-1/2 flex flex-col items-center space-y-4">
             <!-- Εικόνα -->
-            <div class="flex justify-center items-center max-h-fit rounded-md overflow-hidden w-full md:w-3/4">
-                <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-auto object-cover rounded-md">
+            <div class="flex justify-center items-center max-h-full h-96 rounded-md overflow-hidden w-full md:w-3/4">
+                <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-auto object-contain rounded-md">
             </div>
             
             <!-- Τίτλος συνταγής -->
             <h3 class="text-xl font-semibold">{{ $recipe->title }}</h3>
 
             <!-- Τύπος -->
-            <p class="text-sm text-gray-600">{{ $recipe->type }}</p>
+            <p class="text-sm text-gray-600">{{ $recipe->description }}</p>
         </div>
 
         <!-- Δεξιά στήλη --> 

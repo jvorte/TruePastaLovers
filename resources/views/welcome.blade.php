@@ -19,7 +19,7 @@
             </style>
         @endif
     </head>
-    <body class="bg-gray-200 dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+    <body class="bg-gray-100 dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
     
         <!-- ✅ Αντικατάστησε το παλιό header με αυτό -->
         <header class="w-full lg:max-w-7xl max-w-[335px] text-sm mb-6">
@@ -34,7 +34,7 @@
                     </button>
     
                     <!-- Navigation Links -->
-                    <ul id="menu" class="hidden lg:flex gap-4 flex-col lg:flex-row absolute lg:static bg-gray-200 dark:bg-[#0a0a0a] p-4 lg:p-0 w-full lg:w-auto top-16 left-0 shadow-lg lg:shadow-none">
+                    <ul id="menu" class="hidden lg:flex gap-4 flex-col lg:flex-row absolute lg:static bg-gray-100 dark:bg-[#0a0a0a] p-4 lg:p-0 w-full lg:w-auto top-16 left-0 shadow-lg lg:shadow-none">
                         <li><a href="{{ url('/') }}" class="block p-2 hover:text-red-500">Home</a></li>
                         <li><a href="{{ url('/all_recipes') }}" class="block p-2 hover:text-red-500">All Recipes</a></li>
                         <li><a href="{{ url('/vegetarian') }}" class="block p-2 hover:text-red-500">Vegetarian</a></li>
