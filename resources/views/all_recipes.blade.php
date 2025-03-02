@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- main title on page --}}
     <div class="pageMainTitle text-center">
-        <p class="text-3xl md:text-4xl lg:text-4xl">All Recipes <span class="text-1xl md:text-2xl lg:text-3xl">from True Pasta Lovers</span> </p>
+        <p class="text-3xl md:text-4xl lg:text-5xl">All Recipes <span class="text-1xl md:text-2xl lg:text-3xl">from True Pasta Lovers</span> </p>
         @auth
             @if(Auth::user()->isAdmin())
                 <a href="{{ url('/recipes/create') }}" class="text-md">+ new</a>

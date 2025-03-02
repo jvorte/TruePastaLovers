@@ -40,11 +40,14 @@ class FavoriteController extends Controller
         return back()->with('success', 'Η συνταγή αφαιρέθηκε από τα αγαπημένα!');
     }
     public function index()
-{
-    $user = Auth::user();
-    $favorites = $user->favorites()->with('recipe')->get();
+    {
+        $favorites = Favorite::with('recipe')->where('user_id', Auth::id())->get();
+        
+        return view('favorites.index', compact('favorites'));
+    }
 
-    return view('favorites.index', compact('favorites'));
-}
-
+    public function create(array $attributes = []): Favorite
+    {
+        return Favorite::create($attributes);
+    }
 }
