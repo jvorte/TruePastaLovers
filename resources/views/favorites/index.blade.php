@@ -10,16 +10,19 @@
                 @foreach($favorites as $favorite)
                     <div class="bg-white p-5 shadow-md rounded-lg hover:shadow-lg transition">
                         <div class="w-full h-48 overflow-hidden rounded-md mb-4">
-                            <img src="{{ asset('storage/' . optional($favorite->recipe)->image) }}" 
-                                 alt="Recipe Image" 
-                                 class="w-full h-full object-cover">
+                            <img src="{{ asset('storage/' . optional($favorite->recipe)->image) }}" alt="Recipe Image"
+                                class="w-full h-full object-cover">
                         </div>
-                        <h3 class="text-xl font-semibold text-center">{{ optional($favorite->recipe)->title ?? 'Χωρίς τίτλο' }}</h3>
-                        <p class="text-sm text-gray-600 text-center">{{ optional($favorite->recipe)->type ?? 'Άγνωστη κατηγορία' }}</p>
+                        <h3 class="text-xl font-semibold text-center">{{ optional($favorite->recipe)->title ?? 'Χωρίς τίτλο' }}
+                        </h3>
+                        <p class="text-sm text-gray-600 text-center">
+                            {{ optional($favorite->recipe)->type ?? 'Άγνωστη κατηγορία' }}</p>
                         <div class="flex justify-center mt-4">
-                            <a href="{{ route('recipes.show', $favorite->recipe->id ?? '#') }}" 
-                               class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-600 transition">
-                                Δείτε Συνταγή
+
+                            <a href="{{ route('recipes.show', $favorite->recipe->id ?? '#') }}"
+                                class="flex items-center space-x-2 text-slate-500 hover:underline text-md">
+                                <img src="siteImages/view.svg" alt="View Recipe" class="w-5 h-5">
+                                View Recipe
                             </a>
                         </div>
                     </div>
@@ -28,5 +31,3 @@
         @endif
     </div>
 </x-app-layout>
-
-
