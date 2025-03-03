@@ -32,7 +32,7 @@
             @auth
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
-                    <button class="inline-flex items-center px-3 py-5 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-800 bg-gray-100 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                    <button class="inline-flex items-center px-3 py-5 border border-transparent text-[15px] lg:text-[16px] leading-4 font-medium rounded-md text-gray-800 bg-gray-100 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                         <div>Welcome, {{ Auth::user()->name }}</div>
                         <div class="ms-1">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
