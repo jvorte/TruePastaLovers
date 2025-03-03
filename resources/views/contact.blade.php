@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 px-20 items-center">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-20 items-center">
         {{-- Left Column (Image) --}}
         <div class="flex justify-center items-center">
             <img src="/siteImages/pasta3.png" alt="Pasta History" class="w-full  ">
