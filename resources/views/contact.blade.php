@@ -21,7 +21,7 @@
         {{-- Right Column (Text and Form) --}}
         <div class="text-gray-700">
       <h1 class="text-2xl md:text-3xl lg:text-2xl font-semibold text-gray-800">True Pasra Lovers Team</h1>
-      <p>For any inquiries or comments, please feel free to reach out to us through the form below.
+      <p class="mt-2">For any inquiries or comments, please feel free to reach out to us through the form below.
          We would be happy to assist you and respond to any questions as quickly as possible.</p>
             {{-- Contact Form --}}
             <div class="">
@@ -29,7 +29,7 @@
                     @csrf
                 
                     <!-- Name field -->
-                    <div class="mb-2">
+                    <div class="pt-2 mb-2">
                         <label for="name" class="block text-md font-medium text-gray-700">Name</label>
                         <input type="text" name="name" id="name" required class="mt-2 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     </div>
