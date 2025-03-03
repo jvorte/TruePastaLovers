@@ -20,10 +20,14 @@
                 <label for="instructions" class="block text-gray-700">Instructions:</label>
                 <textarea name="instructions" id="instructions" class="w-full p-2 border border-gray-300 rounded-md">{{ $recipe->instructions }}</textarea>
             </div>
-            <div class="mb-4">
-                <label for="type" class="block text-gray-700">Type:</label>
-                <input type="text" name="type" id="type" value="{{ $recipe->type }}" class="w-full p-2 border border-gray-300 rounded-md">
-            </div>
+     
+            <label for="type" class="block font-medium">Type:</label>
+            <select name="type" id="type" value="{{ $recipe->type }}" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                <option value="Pasta">Pasta</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Wines">Wines</option>
+                <option value="Sweets">Sweets</option>
+            </select>
             <div class="mb-4">
                 <label for="image" class="block text-gray-700">Image:</label>
                 <input type="file" name="image" id="image" class="w-full p-2 border border-gray-300 rounded-md">

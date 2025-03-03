@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/contact', [ContactController::class, 'showForm']);
 Route::post('/contact', [ContactController::class, 'submitForm']);
+Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
 
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
 Route::post('/favorites/{recipe}', [FavoriteController::class, 'store'])->name('favorites.add');
@@ -24,9 +25,10 @@ Route::get('/wines', [RecipeController::class, 'wines'])->name('recipes.wines');
 Route::get('/sweets', [RecipeController::class, 'sweets'])->name('recipes.sweets');
 
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
+
 
 Route::middleware('auth')->group(function () {
+    Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
     Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
     Route::resource('recipes', RecipeController::class);
     Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');

@@ -1,8 +1,8 @@
-<div class="relative flex flex-col md:flex-row w-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg h-auto">
+<div class="relative flex flex-col md:flex-row w-full bg-white shadow-sm border border-slate-200 rounded-lg h-72">
     <div class="relative p-2.5 md:w-1/2 shrink-0 overflow-hidden">
         <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-full object-cover">
     </div>
-    <div class="p-6 flex flex-col h-full"> <!-- Προσθέτουμε h-full εδώ για να γεμίσει όλο το ύψος -->
+    <div class="p-6 flex flex-col h-full">
         <div class="mb-4 rounded-full py-5.5 px-2.5 border border-transparent text-xs transition-all shadow-xl text-center">
             @auth
                 @if(!Auth::user()->favorites->contains('recipe_id', $recipe->id))
@@ -33,7 +33,7 @@
         <p class="mb-8 text-slate-600 leading-normal font-light">
             {{ $recipe->description }}
         </p>
-        <div class="mt-auto"> <!-- Αυτό το div θα ωθήσει το περιεχόμενο προς τα κάτω -->
+        <div class="mt-auto">
             <a href="{{ route('recipes.show', $recipe->id) }}" class="flex items-center space-x-2 text-slate-500 hover:underline text-md">
                 <img src="siteImages/view.svg" alt="View Recipe" class="w-5 h-5">
                 <span>View Recipe</span>
