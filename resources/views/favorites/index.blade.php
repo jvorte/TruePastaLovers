@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-6xl mx-auto  pageMainTitle text-center">
-        <p class="text-3xl md:text-4xl lg:text-5xl">Favorites</p>
+        <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Favorites</p>
         <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span>
 
         @if($favorites->isEmpty())

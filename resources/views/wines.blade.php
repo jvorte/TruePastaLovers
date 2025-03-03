@@ -1,7 +1,7 @@
 <x-app-layout>
   {{-- Main Title on Page --}}
   <div class="pageMainTitle text-center">
-      <p class="text-3xl md:text-4xl lg:text-5xl">Wines</p>
+      <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Wines</p>
       <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span>
 
       @auth
