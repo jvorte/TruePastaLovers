@@ -1,12 +1,16 @@
 <x-app-layout>
-    <div class="max-w-4xl mt-8 mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div class="pageMainTitle text-center">
+        <p class="text-3xl md:text-4xl lg:text-5xl">Recipe  </p>
+        <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span>
+    </div>
+    <div class="max-w-6xl mt-8 mx-auto p-6 bg-white shadow-md rounded-lg">
         <!-- Τίτλος συνταγής -->
         <h1 class="text-3xl font-bold text-center text-gray-800">{{ $recipe->title }}</h1>
 
         <!-- Εικόνα -->
         <div class="flex justify-center mt-4">
             <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image"
-                class="w-full max-w-4xl h-72 object-cover rounded-md shadow-md">
+                class="w-full max-w-6xl h-72 object-cover rounded-md shadow-md">
         </div>
 
         <!-- Περιγραφή -->

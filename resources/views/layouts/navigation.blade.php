@@ -14,11 +14,14 @@
                 <nav class="hidden sm:flex">
                     <ul class="flex gap-4 ms-5 mt-5">
                         <li><a href="{{ url('/') }}" class=" hover:text-red-500">Home</a></li>
+                        <li><a href="{{ url('/about') }}" class=" hover:text-red-500">About</a></li>
                         <li><a href="{{ url('/all_recipes') }}" class=" hover:text-red-500">All Recipes</a></li>
                         <li><a href="{{ url('/vegetarian') }}" class=" hover:text-red-500">Vegetarian</a></li>
                         <li><a href="{{ url('/wines') }}" class=" hover:text-red-500">Wines</a></li>
                         <li><a href="{{ url('/sweets') }}" class=" hover:text-red-500">Sweets</a></li>
+                
                         <li><a href="{{ route('favorites.index') }}" class="text-gray-800 hover:text-red-500">My Favorites</a></li>
+                        <li><a href="{{ url('/contact') }}" class=" hover:text-red-500">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -58,11 +61,11 @@
         @guest
 <ul class=" gap-4 ms-5 mt-5 hidden sm:flex">
     <li>
-        <a href="{{ route('login') }}" class="block p-1 border border-gray-400 rounded">Log in</a>
+        <a href="{{ route('login') }}" class="block p-2 border border-gray-400 rounded">Log in</a>
     </li>
     @if (Route::has('register'))
         <li>
-            <a href="{{ route('register') }}" class="block p-1 border border-gray-400 rounded">Register</a>
+            <a href="{{ route('register') }}" class="block p-2 border border-gray-400 rounded">Register</a>
         </li>
     @endif
 </ul>
@@ -88,6 +91,7 @@
         <li><a href="{{ url('/vegetarian') }}" class="block p-2 text-gray-800">Vegetarian</a></li>
         <li><a href="{{ url('/wines') }}" class="block p-2 text-gray-800">Wines</a></li>
         <li><a href="{{ url('/sweets') }}" class="block p-2 text-gray-800">Sweets</a></li>
+        <li><a href="{{ url('/contact') }}" class="block p-2 text-gray-800">Contact</a></li>
         <li><a href="{{ route('favorites.index') }}" class="text-gray-800 hover:text-blue-500">My Favorites</a></li>
     </ul>
                 @guest

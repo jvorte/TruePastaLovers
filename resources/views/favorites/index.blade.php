@@ -1,12 +1,12 @@
 <x-app-layout>
-    <div class="container mx-auto py-8 pageMainTitle text-center">
+    <div class="max-w-6xl mx-auto  pageMainTitle text-center">
         <p class="text-3xl md:text-4xl lg:text-5xl">Favorites</p>
         <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span>
 
         @if($favorites->isEmpty())
             <p class="text-center text-gray-600">Δεν έχετε προσθέσει ακόμα αγαπημένες συνταγές!</p>
         @else
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pt-7 gap-6">
                 @foreach($favorites as $favorite)
                     <div class="bg-white p-5 shadow-md rounded-lg hover:shadow-lg transition">
                         <div class="w-full h-48 overflow-hidden rounded-md mb-4">
