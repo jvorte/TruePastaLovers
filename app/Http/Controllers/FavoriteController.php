@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,13 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-
     public function __construct()
-{
-    $this->middleware('auth');
-}
+    {
+        // Αυτό το middleware φροντίζει να στείλει τον χρήστη στο login αν δεν είναι συνδεδεμένος
+        $this->middleware('auth');
+    }
 
-  
     public function store($recipeId)
     {
         $user = Auth::user();
@@ -39,10 +37,10 @@ class FavoriteController extends Controller
 
         return back()->with('success', 'Η συνταγή αφαιρέθηκε από τα αγαπημένα!');
     }
+
     public function index()
     {
         $favorites = Favorite::with('recipe')->where('user_id', Auth::id())->get();
-        
         return view('favorites.index', compact('favorites'));
     }
 
@@ -51,3 +49,4 @@ class FavoriteController extends Controller
         return Favorite::create($attributes);
     }
 }
+

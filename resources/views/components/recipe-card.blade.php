@@ -4,9 +4,10 @@
     </div>
     <div class="p-6 flex flex-col h-full">
         <div class="mb-4 rounded-full py-5.5 px-2.5 border border-transparent text-xs transition-all shadow-xl text-center">
+
             @auth
                 @if(!Auth::user()->favorites->contains('recipe_id', $recipe->id))
-                    <!-- Προσθήκη στα αγαπημένα -->
+                    <!-- Μόνο αν η συνταγή δεν είναι στα αγαπημένα -->
                     <form action="{{ route('favorites.add', $recipe->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="flex items-center justify-center space-x-2 hover:text-red-500 text-sm">
@@ -15,7 +16,7 @@
                         </button>
                     </form>
                 @else
-                    <!-- Αφαίρεση από τα αγαπημένα -->
+                    <!-- Αν η συνταγή είναι ήδη στα αγαπημένα -->
                     <form action="{{ route('favorites.remove', $recipe->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -25,8 +26,13 @@
                         </button>
                     </form>
                 @endif
+            @else
+                <!-- Αν ο χρήστης δεν είναι συνδεδεμένος, δείχνουμε το κουμπί login -->
+                <p class="text-center text-sm text-gray-500">You need to <a href="{{ route('login') }}" class="text-blue-500 hover:underline">log in</a> to add this recipe to your favorites.</p>
             @endauth
+
         </div>
+
         <h4 class="mb-2 text-slate-800 text-xl font-semibold">
             {{ $recipe->title }}
         </h4>
