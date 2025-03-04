@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FavoriteController;
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SocialAuthController;
+
+Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback']);
+
 
 Route::get('/contact', [ContactController::class, 'showForm']);
 Route::post('/contact', [ContactController::class, 'submitForm']);
@@ -24,7 +29,9 @@ Route::get('/vegetarian', [RecipeController::class, 'vegetarian'])->name('recipe
 Route::get('/wines', [RecipeController::class, 'wines'])->name('recipes.wines');
 Route::get('/sweets', [RecipeController::class, 'sweets'])->name('recipes.sweets');
 Route::get('/pasta', [RecipeController::class, 'pasta'])->name('recipes.pasta');
-Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
+
+// εδω ειναι μην ξεχασω να βαλω τον κωδικα που εχω στο αρχειο web.php
+// Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
