@@ -19,4 +19,11 @@
             @endforeach
         </div>
     </div>
+
+        {{-- Footer --}}
+        <div class="mt-10 text-center text-sm text-gray-500">
+            <p>&copy; 2025 True Pasta Lovers. All rights reserved.</p>
+        </div>
+
+        
 </x-app-layout>

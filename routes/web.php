@@ -23,7 +23,7 @@ Route::get('/vegetarian', function () { return view('vegetarian'); });
 Route::get('/vegetarian', [RecipeController::class, 'vegetarian'])->name('recipes.vegetarian');
 Route::get('/wines', [RecipeController::class, 'wines'])->name('recipes.wines');
 Route::get('/sweets', [RecipeController::class, 'sweets'])->name('recipes.sweets');
-
+Route::get('/pasta', [RecipeController::class, 'pasta'])->name('recipes.pasta');
 Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
 

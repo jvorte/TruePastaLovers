@@ -68,6 +68,7 @@
                         <li><a href="{{ url('/about') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">About</a></li>
                         <li><a href="{{ url('/all_recipes') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">All Recipes</a></li>
                         <li><a href="{{ url('/vegetarian') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Vegetarian</a></li>
+                        <li><a href="{{ url('/pasta') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Pasta</a></li>
                         <li><a href="{{ url('/wines') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Wines</a></li>
                         <li><a href="{{ url('/sweets') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Sweets</a></li>                       
                         <li><a href="{{ route('favorites.index') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">My Favorites</a></li>
@@ -112,7 +113,10 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
-    
+        {{-- Footer --}}
+        <div class="mt-10 text-center text-sm text-gray-500">
+            <p>&copy; 2025 True Pasta Lovers. All rights reserved.</p>
+        </div>
      
         <script>
             document.getElementById('menu-toggle').addEventListener('click', function() {

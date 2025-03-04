@@ -28,7 +28,7 @@
                 @endif
             @else
                 <!-- Αν ο χρήστης δεν είναι συνδεδεμένος, δείχνουμε το κουμπί login -->
-                <p class="text-center text-sm text-gray-500">You need to <a href="{{ route('login') }}" class="text-blue-500 hover:underline">log in</a> to add this recipe to your favorites.</p>
+             <a href="{{ route('login') }}" class="text-slate-500 hover:underline  "> <span>Add to Favorites <img src="siteImages/heart-.svg" alt="Add to Favorites" class="float-right ms-3 w-5 h-5"></span></a>
             @endauth
 
         </div>
