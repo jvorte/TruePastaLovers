@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- main title on page --}}
-    <div class="pageMainTitle text-center py-10">
+    <div class="pageMainTitle text-center ">
         <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Contact</p>
         <span class="text-xl md:text-2xl lg:text-2xl text-gray-600">from True Pasta Lovers</span>
     </div>
@@ -11,12 +11,8 @@
         </div>
     @endif
 
-<<<<<<< HEAD
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-20 items-center">
-=======
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-10 items-center">
 
->>>>>>> create
         {{-- Left Column (Image) --}}
         <div class="flex justify-center items-center">
             <img src="/siteImages/pasta3.png" alt="Pasta History" class="w-full  ">
