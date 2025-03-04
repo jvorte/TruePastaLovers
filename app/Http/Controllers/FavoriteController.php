@@ -27,7 +27,7 @@ class FavoriteController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Η συνταγή προστέθηκε στα αγαπημένα!');
+        return back()->with('success', 'Η recipe added to favorites!');
     }
 
     public function destroy($recipeId)
@@ -35,7 +35,7 @@ class FavoriteController extends Controller
         $user = Auth::user();
         $user->favorites()->where('recipe_id', $recipeId)->delete();
 
-        return back()->with('success', 'Η συνταγή αφαιρέθηκε από τα αγαπημένα!');
+        return back()->with('success', 'Η recipe removed from favorites!');
     }
 
     public function index()

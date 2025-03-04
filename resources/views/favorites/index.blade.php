@@ -4,7 +4,7 @@
         <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span>
 
         @if($favorites->isEmpty())
-            <p class="text-center text-gray-600 mt-8 ">Δεν έχετε προσθέσει ακόμα αγαπημένες συνταγές!</p>
+            <p class="text-center text-gray-600 mt-8 ">You haven't added any favorite recipes yet!</p>
         @else
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pt-7 gap-6">
                 @foreach($favorites as $favorite)

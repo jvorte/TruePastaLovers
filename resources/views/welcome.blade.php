@@ -64,7 +64,7 @@
                     </button>
 
                 <!-- Navigation Links -->
-                    <ul id="menu" class="hidden lg:flex gap-4 flex-col lg:flex-row absolute lg:static bg-gray-100 dark:bg-[#0a0a0a] p-4 lg:p-0 w-full lg:w-auto top-16 left-0 shadow-lg lg:shadow-none">
+                    <ul id="menu" class="hidden lg:flex gap-2 flex-col lg:flex-row absolute lg:static bg-gray-100 dark:bg-[#0a0a0a] p-4 lg:p-0 w-full lg:w-auto top-16 left-0 shadow-lg lg:shadow-none">
                         <li><a href="{{ url('/') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Home</a></li>
                         <li><a href="{{ url('/about') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">About</a></li>
                         <li><a href="{{ url('/all_recipes') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">All Recipes</a></li>
