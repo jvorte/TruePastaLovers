@@ -14,10 +14,27 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-20 items-center">
 
         {{-- Left Column (Image) --}}
-        <div class="flex justify-center items-center">
-            <img src="/siteImages/pasta3.png" alt="Pasta History" class="w-full  ">
-            
+        <div class="contactImage flex justify-center items-center flex-col">
+            <img src="/siteImages/pasta3.png" alt="Pasta History" class="w-full">
+        
+            <!-- Newsletter Subscription -->
+            <div class="mt-6 w-full max-w-md text-center">
+                <h2 class="text-lg font-semibold text-gray-800">Subscribe to our Newsletter</h2>
+                <p class="text-sm text-gray-600 mb-4">Get the latest recipes delivered to your inbox!</p>
+                
+                <form action="{{ route('newsletter.subscribe') }}" method="POST" class="flex flex-col sm:flex-row gap-2">
+
+                    @csrf
+                    <input type="email" name="email" required placeholder="Enter your email"
+                        class="p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button type="submit"
+                        class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
         </div>
+        
 
         {{-- Right Column (Text and Form) --}}
         <div class="text-gray-700">

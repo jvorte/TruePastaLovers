@@ -6,6 +6,10 @@ use App\Http\Controllers\FavoriteController;
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SocialAuthController;
+use App\Http\Controllers\NewsletterController;
+
+Route::post('/subscribe', [NewsletterController::class, 'store'])->name('newsletter.subscribe');
+
 
 Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback']);
