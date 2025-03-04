@@ -10,31 +10,12 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <nav class="hidden sm:flex">
-                    <ul class="flex gap-4 ms-5 mt-5">
-                        <li><a href="{{ url('/') }}" class=" hover:text-red-500">Home</a></li>
-                        <li><a href="{{ url('/about') }}" class=" hover:text-red-500">About</a></li>
-                        <li><a href="{{ url('/all_recipes') }}" class=" hover:text-red-500">All Recipes</a></li>
-                        <li><a href="{{ url('/pasta') }}" class=" hover:text-red-500">Pasta</a></li>
-                        <li><a href="{{ url('/vegetarian') }}" class=" hover:text-red-500">Vegetarian</a></li>
-                   
-                        <li><a href="{{ url('/wines') }}" class=" hover:text-red-500">Wines</a></li>
-                        <li><a href="{{ url('/sweets') }}" class=" hover:text-red-500">Sweets</a></li>
-                
-                        <li><a href="{{ route('favorites.index') }}" class="text-gray-800 hover:text-red-500">My Favorites</a></li>
-                        <li><a href="{{ url('/contact') }}" class=" hover:text-red-500">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
 
             <!-- Settings Dropdown -->
-
-
             @auth
             <x-dropdown align="right" width="48">
                 <x-slot name="trigger">
-                    <button class="inline-flex items-center px-3 py-5 border border-transparent text-[15px] lg:text-[16px] leading-4 font-medium rounded-md text-gray-800 bg-gray-100 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                    <button class="inline-flex items-center px-5 py-6 border border-transparent text-[15px] lg:text-[16px] leading-4 font-medium rounded-md text-gray-800 bg-gray-100 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                         <div>Welcome, {{ Auth::user()->name }}</div>
                         <div class="ms-1">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -72,6 +53,28 @@
     @endif
 </ul>
     @endguest
+
+
+
+                <!-- Navigation Links -->
+                <nav class="hidden sm:flex">
+                    <ul class="flex gap-6 ms-5 mt-5">
+                        <li><a href="{{ url('/') }}" class=" hover:text-red-500">Home</a></li>
+                        <li><a href="{{ url('/about') }}" class=" hover:text-red-500">About</a></li>
+                        <li><a href="{{ url('/all_recipes') }}" class=" hover:text-red-500">All Recipes</a></li>
+                        <li><a href="{{ url('/pasta') }}" class=" hover:text-red-500">Pasta</a></li>
+                        <li><a href="{{ url('/vegetarian') }}" class=" hover:text-red-500">Vegetarian</a></li>
+                   
+                        <li><a href="{{ url('/wines') }}" class=" hover:text-red-500">Wines</a></li>
+                        <li><a href="{{ url('/sweets') }}" class=" hover:text-red-500">Sweets</a></li>
+                
+                        <li><a href="{{ route('favorites.index') }}" class="text-gray-800 hover:text-red-500">My Favorites</a></li>
+                        <li><a href="{{ url('/contact') }}" class=" hover:text-red-500">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
 
             <!-- Hamburger Button for Mobile -->
             <div class="-me-2 flex items-center sm:hidden">

@@ -1,4 +1,4 @@
-<div class="relative flex flex-col md:flex-row w-full bg-white shadow-sm border border-slate-200 rounded-lg h-72">
+<div class="relative flex flex-col md:flex-row w-full bg-white shadow-sm border border-slate-200 rounded-lg h-auto md:h-72">
     <div class="relative p-2.5 md:w-1/2 shrink-0 overflow-hidden">
         <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-full object-cover">
     </div>
