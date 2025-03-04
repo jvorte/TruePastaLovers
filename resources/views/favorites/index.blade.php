@@ -28,7 +28,7 @@
                                 <form action="{{ route('favorites.remove', $favorite->recipe->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="flex items-center text-center justify-center space-x-2 text-red-500 text-sm">
+                                    <button type="submit" class="flex items-center text-center justify-center space-x-2 text-red-500 text-sm mb-3">
                                         <img src="siteImages/heart.svg" alt="Remove from Favorites" class="w-5 h-5">
                                         <p>Remove from Favorites</p>
                                     </button>
