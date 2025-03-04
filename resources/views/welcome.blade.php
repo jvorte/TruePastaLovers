@@ -21,10 +21,11 @@
     </head>
     <body class="bg-gray-100 dark:bg-[#0a0a0a] text-[#1b1b18] flex p-2 lg:p-2 items-center lg:justify-center min-h-screen flex-col">
     
-        <header class="w-full lg:max-w-7xl max-w-[335px] text-sm mb-6">
+        <header class="w-full lg:max-w-7xl max-w-[355px] text-sm mb-6">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-between">
                     <!-- Logo -->
+            
                     <a href="{{ url('/') }}" class="text-xl font-bold">True Pasta Lovers</a>
     
                     @auth
@@ -68,6 +69,7 @@
                         <li><a href="{{ url('/about') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">About</a></li>
                         <li><a href="{{ url('/all_recipes') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">All Recipes</a></li>
                         <li><a href="{{ url('/vegetarian') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Vegetarian</a></li>
+                        <li><a href="{{ url('/pasta') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Pasta</a></li>
                         <li><a href="{{ url('/wines') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Wines</a></li>
                         <li><a href="{{ url('/sweets') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">Sweets</a></li>                       
                         <li><a href="{{ route('favorites.index') }}" class="block p-2 text-[15px] lg:text-[16px] hover:text-red-500">My Favorites</a></li>
@@ -94,9 +96,9 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="md:p-[85px]">
-                        <p class="text-3xl md:text-4xl lg:text-5xl">Welcome to </p>
+                        <p class="text-3xl md:text-4xl lg:text-5xl">Welcome to</p>
                         <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold">True Pasta Lovers</h1>
-                        <p class="text-base md:text-lg lg:text-xl">If you’re a true pasta enthusiast, you know there’s nothing quite like the perfect plate of pasta. Whether it's the comforting simplicity of spaghetti aglio e olio or the indulgence of a rich, creamy Alfredo, pasta is more than just a meal—it's a passion.</p>
+                        <p class="text-base md:text-lg lg:text-lg">If you’re a true pasta enthusiast, you know there’s nothing quite like the perfect plate of pasta. Whether it's the comforting simplicity of spaghetti aglio e olio or the indulgence of a rich, creamy Alfredo, pasta is more than just a meal—it's a passion.</p>
 
                         <a href="{{ url('about') }}" class="float-left bg-red-500 text-white  mt-6 text-[15px] lg:text-[16px] p-2 rounded">About us...</a>
 
@@ -112,7 +114,10 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
-    
+        {{-- Footer --}}
+        <div class="mt-10 text-center text-sm text-gray-500">
+            <p>&copy; 2025 True Pasta Lovers. All rights reserved.</p>
+        </div>
      
         <script>
             document.getElementById('menu-toggle').addEventListener('click', function() {

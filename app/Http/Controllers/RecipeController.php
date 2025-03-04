@@ -127,7 +127,12 @@ class RecipeController extends Controller
     return view('wines', compact('recipes'));
     
 }
-
+public function pasta()
+{
+    $recipes = Recipe::where('type', 'pasta')->get();
+    return view('pasta', compact('recipes'));
+    
+}
 public function sweets()
 {
     $recipes = Recipe::where('type', 'sweets')->get();

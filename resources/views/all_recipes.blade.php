@@ -1,7 +1,8 @@
 <x-app-layout>
     {{-- main title on page --}}
     <div class="pageMainTitle text-center">
-        <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">All Recipes </p>
+
+        <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">All Recipes  </p>
         <span class="text-1xl md:text-2xl lg:text-2xl">from True Pasta Lovers</span> 
         @auth
             @if(Auth::user()->isAdmin())
@@ -20,4 +21,8 @@
         </div>
     </div>
     
+        {{-- Footer --}}
+        <div class="mt-10 text-center text-sm text-gray-500">
+            <p>&copy; 2025 True Pasta Lovers. All rights reserved.</p>
+        </div>
 </x-app-layout>
