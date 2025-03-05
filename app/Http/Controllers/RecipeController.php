@@ -23,35 +23,40 @@ class RecipeController extends Controller
         return view('recipes.create');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',  
-            'description' => 'required',   
-            'ingredients' => 'required',
-            'instructions' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Επιπλέον έλεγχος για την εικόνα
-            'type' => 'required',
-        ]);
-    
-        // Αν υπάρχει εικόνα, αποθήκευσέ την
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-        }
-    
-        // Δημιουργία της συνταγής με το αποθηκευμένο path της εικόνας
-        Recipe::create([
-            'title' => $request->title,
-            'description' => $request->description, 
-            'ingredients' => $request->ingredients,
-            'instructions' => $request->instructions,
-            'image' => $imagePath, // Αποθήκευση του path της εικόνας
-            'type' => $request->type,
-        ]);
-    
-        return redirect()->route('all_recipes');
+   public function store(Request $request)
+{
+    // Επικύρωση
+    $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'ingredients' => 'required',
+        'instructions' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'type' => 'required',
+    ]);
+
+    // Εκτύπωση όλων των δεδομένων του request
+    dd($request->all());
+
+    // Αποθήκευση της εικόνας
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('images', 'public');
     }
+
+    // Δημιουργία νέας συνταγής
+    Recipe::create([
+        'title' => $request->title,
+        'description' => $request->description,
+        'ingredients' => $request->ingredients,
+        'instructions' => $request->instructions,
+        'image' => $imagePath,
+        'type' => $request->type,
+    ]);
+
+    return redirect()->route('all_recipes');
+}
+
     
     public function show($id)
     {

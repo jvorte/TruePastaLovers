@@ -3,7 +3,7 @@
         <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-full object-cover">
     </div>
     <div class="p-6 flex flex-col h-full">
-        <div class="mb-4 rounded-full py-5.5 px-2.5 border border-transparent text-xs transition-all shadow-xl text-center">
+        <div class="mb-4 rounded-full py-5.5 px-2.5 border border-transparent text-xs transition-all  text-center">
 
             @auth
                 @if(!Auth::user()->favorites->contains('recipe_id', $recipe->id))
