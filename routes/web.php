@@ -17,7 +17,7 @@ Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCa
 
 Route::get('/contact', [ContactController::class, 'showForm']);
 Route::post('/contact', [ContactController::class, 'submitForm']);
-Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
+// Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
 
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
 Route::post('/favorites/{recipe}', [FavoriteController::class, 'store'])->name('favorites.add');
@@ -33,19 +33,18 @@ Route::get('/vegetarian', [RecipeController::class, 'vegetarian'])->name('recipe
 Route::get('/wines', [RecipeController::class, 'wines'])->name('recipes.wines');
 Route::get('/sweets', [RecipeController::class, 'sweets'])->name('recipes.sweets');
 Route::get('/pasta', [RecipeController::class, 'pasta'])->name('recipes.pasta');
-
+Route::get('/about', function () { return view('about');})->name('about');
 // εδω ειναι μην ξεχασω να βαλω τον κωδικα που εχω στο αρχειο web.php
 // Route::get('/dashboard', function () { return view('dashboard'); })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
-    Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
     Route::resource('recipes', RecipeController::class);
-    Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/about', function () { return view('about');})->name('about');require __DIR__.'/auth.php';
+
+
+require __DIR__.'/auth.php';
