@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
+        <title>TruePastaLovers</title>
+        <link rel="icon" href="siteImages/logo.png">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -98,7 +98,7 @@
                     <div class="md:p-[85px]">
                         <p class="text-3xl md:text-4xl lg:text-5xl">Welcome to</p>
                         <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold">True Pasta Lovers</h1>
-                        <p class="text-base md:text-lg lg:text-lg">If you’re a true pasta enthusiast, you know there’s nothing quite like the perfect plate of pasta. Whether it's the comforting simplicity of spaghetti aglio e olio or the indulgence of a rich, creamy Alfredo, pasta is more than just a meal—it's a passion.</p>
+                        <p class="text-base md:text-lg lg:text-lg">If you’re a true pasta enthusiast, you know there’s nothing quite like the perfect plate of pasta. Whether it's the comforting simplicity of spaghetti aglio e olio or the indulgence of a rich, creamy Alfredo, pasta is more than just a meal...it's a passion.</p>
 
                         <a href="{{ url('about') }}" class="float-left bg-red-500 text-white  mt-6 text-[15px] lg:text-[16px] p-2 rounded">About us...</a>
 

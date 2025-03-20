@@ -1,6 +1,6 @@
 <div class="relative flex flex-col md:flex-row w-full bg-white shadow-sm border border-slate-200 rounded-lg h-auto md:h-72">
     <div class="relative p-2.5 md:w-1/2 shrink-0 overflow-hidden">
-        <img src="{{ asset('storage/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-full object-cover">
+        <img src="{{ asset('images/' . $recipe->image) }}" alt="Recipe Image" class="w-full h-full object-cover">
     </div>
     <div class="p-6 flex flex-col h-full">
         <div class="mb-4 rounded-full py-5.5 px-2.5 border border-transparent text-xs transition-all  text-center">

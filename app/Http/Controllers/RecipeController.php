@@ -17,7 +17,6 @@ class RecipeController extends Controller
         }
     }
     
-
     public function create()
     {
         return view('recipes.create');
@@ -30,23 +29,21 @@ class RecipeController extends Controller
             'description' => 'required',   
             'ingredients' => 'required',
             'instructions' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Επιπλέον έλεγχος για την εικόνα
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'type' => 'required',
         ]);
     
-        // Αν υπάρχει εικόνα, αποθήκευσέ την
-        $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
         }
     
-        // Δημιουργία της συνταγής με το αποθηκευμένο path της εικόνας
         Recipe::create([
             'title' => $request->title,
             'description' => $request->description, 
             'ingredients' => $request->ingredients,
             'instructions' => $request->instructions,
-            'image' => $imagePath, // Αποθήκευση του path της εικόνας
+            'image' => $imageName,
             'type' => $request->type,
         ]);
     
@@ -62,13 +59,11 @@ class RecipeController extends Controller
     public function edit($id)
     {
         $recipe = Recipe::find($id);
-
         return view('recipes.edit', compact('recipe'));
     }
 
     public function update(Request $request, $id)
     {
-        // Validate the input
         $request->validate([
             'title' => 'required',
             'description' => 'required',  
@@ -78,30 +73,24 @@ class RecipeController extends Controller
             'type' => 'required',
         ]);
     
-        // Find the recipe by ID
         $recipe = Recipe::find($id);
     
-        // Check if the recipe exists
         if (!$recipe) {
             return redirect()->route('recipes.index')->with('error', 'Recipe not found.');
         }
     
-        // If there is a new image, store it
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $recipe->image = $imagePath;
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $recipe->image = $imageName;
         }
     
-        // Update the recipe data
         $recipe->title = $request->title;
         $recipe->description = $request->description;
         $recipe->ingredients = $request->ingredients;
         $recipe->instructions = $request->instructions;
         $recipe->type = $request->type;
-        
-        // Save the changes
-        $recipe->save();
-
+    
         try {
             $recipe->save();
         } catch (\Exception $e) {
@@ -111,7 +100,6 @@ class RecipeController extends Controller
         return redirect()->route('recipes.show', $recipe->id);
     }
     
-
     public function destroy($id)
     {
         $recipe = Recipe::find($id);
@@ -122,29 +110,26 @@ class RecipeController extends Controller
     }
 
     public function wines()
-{
-    $recipes = Recipe::where('type', 'wines')->get();
-    return view('wines', compact('recipes'));
+    {
+        $recipes = Recipe::where('type', 'wines')->get();
+        return view('wines', compact('recipes'));
+    }
     
-}
-public function pasta()
-{
-    $recipes = Recipe::where('type', 'pasta')->get();
-    return view('pasta', compact('recipes'));
+    public function pasta()
+    {
+        $recipes = Recipe::where('type', 'pasta')->get();
+        return view('pasta', compact('recipes'));
+    }
     
-}
-public function sweets()
-{
-    $recipes = Recipe::where('type', 'sweets')->get();
-    return view('sweets', compact('recipes'));
+    public function sweets()
+    {
+        $recipes = Recipe::where('type', 'sweets')->get();
+        return view('sweets', compact('recipes'));
+    }
     
-}
-
-public function vegetarian()
-{
-    $recipes = Recipe::where('type', 'vegetarian')->get();
-    return view('vegetarian', compact('recipes'));
-    
-}
-
+    public function vegetarian()
+    {
+        $recipes = Recipe::where('type', 'vegetarian')->get();
+        return view('vegetarian', compact('recipes'));
+    }
 }
