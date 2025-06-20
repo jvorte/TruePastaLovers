@@ -57,7 +57,7 @@
 
 
                 <!-- Navigation Links -->
-                <nav class="hidden sm:flex">
+                <nav class="hidden sm:flex ">
                     <ul class="flex gap-6 ms-5 mt-5">
                         <li><a href="{{ url('/') }}" class=" hover:text-red-500">Home</a></li>
                         <li><a href="{{ url('/about') }}" class=" hover:text-red-500">About</a></li>
